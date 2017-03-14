@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -12,21 +6,21 @@ import {
   View
 } from 'react-native';
 
+class MeuComponente extends Component {
+    render() {
+        return (
+          <View>
+            <Text>{this.props.valor}</Text>
+            <Text>{this.props.text}</Text>
+          </View>
+        );
+    }
+}
+
 export default class rctNtvAppJoquempo extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <MeuComponente valor="numero1" text="meu componente"></MeuComponente>
     );
   }
 }
