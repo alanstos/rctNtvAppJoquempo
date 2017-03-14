@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Topo from './src/components/Topo';
+import Icone from './src/components/Icone';
 
 export default class rctNtvAppJoquempo extends Component {
 
@@ -99,7 +100,7 @@ export default class rctNtvAppJoquempo extends Component {
 
         <Topo></Topo>
 
-        <View style={styles.papelAcoes}>
+        <View style={styles.panelAcoes}>
           <View style={styles.btnAcao}>
             <Button title="Pedra" onPress={ () => {this.escolhaUsuario('Pedra')} }/>  
           </View> 
@@ -113,10 +114,11 @@ export default class rctNtvAppJoquempo extends Component {
           </View> 
         </View>        
 
-        <View>
+        <View style={ styles.panelResultado }>
           <Text style={styles.textoResultado }>{this.state.resultado}</Text>
-          <Text>Escolha do computador: {this.state.escolhaPC}</Text>
-          <Text>Escolha do usuario: {this.state.escolhaUsuario}</Text>
+
+          <Icone valor={this.state.escolhaPC} jogador="Computador" ></Icone>
+          <Icone valor={this.state.escolhaUsuario} jogador="Usuario" ></Icone>
                   
         </View>        
 
@@ -127,7 +129,7 @@ export default class rctNtvAppJoquempo extends Component {
 
 const styles = StyleSheet.create({
 
-  papelAcoes: {
+  panelAcoes: {
     flexDirection : 'row',
     justifyContent : 'space-between',
     marginTop : 15
@@ -136,26 +138,16 @@ const styles = StyleSheet.create({
     width :100
   },
   textoResultado : {
-    fontSize : 20,
-    color : 'Red'
+    fontSize : 22,
+    color : '#F00',
+    fontWeight : 'bold'
   },
-
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  panelResultado : {
+    marginTop : 10,
+    alignItems : 'center'
   }
+
+
 });
 
 AppRegistry.registerComponent('rctNtvAppJoquempo', () => rctNtvAppJoquempo);
