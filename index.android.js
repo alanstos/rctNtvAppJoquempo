@@ -3,24 +3,41 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
 class MeuComponente extends Component {
     render() {
         return (
           <View>
-            <Text>{this.props.valor}</Text>
-            <Text>{this.props.text}</Text>
+            <Text>{this.props.value}</Text>
           </View>
         );
     }
 }
 
 export default class rctNtvAppJoquempo extends Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.state = { texto : 'Texto padrão! '};
+  }
+
+
+  alterarTexto() {
+    
+    this.setState( { texto : 'Mudamos o texto...' });
+  }
+
   render() {
+    
     return (
-      <MeuComponente valor="numero1" text="meu componente"></MeuComponente>
+      <View>
+        <MeuComponente value={ this.state.texto } ></MeuComponente>
+        <Button title="Alterar texto" onPress={ () => {this.alterarTexto()} }/>  
+      </View>
     );
   }
 }
